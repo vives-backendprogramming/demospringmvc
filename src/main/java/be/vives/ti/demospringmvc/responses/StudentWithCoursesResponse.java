@@ -1,4 +1,4 @@
-package be.vives.ti.demospringmvc.request;
+package be.vives.ti.demospringmvc.responses;
 
 import be.vives.ti.demospringmvc.domain.Course;
 import be.vives.ti.demospringmvc.domain.Student;

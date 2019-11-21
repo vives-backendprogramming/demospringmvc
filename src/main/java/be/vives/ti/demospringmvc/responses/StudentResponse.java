@@ -1,8 +1,9 @@
-package be.vives.ti.demospringmvc.request;
+package be.vives.ti.demospringmvc.responses;
 
 import be.vives.ti.demospringmvc.domain.Student;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class StudentResponse {
 
