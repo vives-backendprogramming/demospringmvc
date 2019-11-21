@@ -3,6 +3,7 @@ package be.vives.ti.demospringmvc.controller;
 import be.vives.ti.demospringmvc.domain.Course;
 import be.vives.ti.demospringmvc.exceptions.ResourceNotFoundException;
 import be.vives.ti.demospringmvc.repository.CourseRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,9 +13,10 @@ import java.util.List;
 @CrossOrigin("*")
 public class CourseController {
 
+
     private final CourseRepository courseRepository;
 
-
+    @Autowired
     public CourseController(CourseRepository courseRepository) {
         this.courseRepository = courseRepository;
     }
