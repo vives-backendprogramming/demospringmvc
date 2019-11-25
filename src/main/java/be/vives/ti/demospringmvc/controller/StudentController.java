@@ -136,11 +136,12 @@ public class StudentController {
         studentRepository.save(student);
     }
 
-    @DeleteMapping("/{studentId}/courses")
+    @DeleteMapping("/{studentId}/courses/{courseCode}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteCourseOfStudent(@PathVariable(name = "studentId") Long studentId, @RequestBody @Valid CourseCodeRequest courseCode){
+    public void deleteCourseOfStudent(@PathVariable(name = "studentId") Long studentId,
+                                      @PathVariable(name = "courseCode") String courseCode) {
         Student student = studentRepository.findById(studentId).orElseThrow(() -> new ResourceNotFoundException(studentId.toString(), "student"));
-        Course course = courseRepository.findById(courseCode.getCode()).orElseThrow(() -> new ResourceNotFoundException(courseCode.getCode(), "course"));
+        Course course = courseRepository.findById(courseCode).orElseThrow(() -> new ResourceNotFoundException(courseCode, "course"));
         student.removeCourse(course);
         studentRepository.save(student);
     }
