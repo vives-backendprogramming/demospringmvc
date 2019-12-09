@@ -2,7 +2,6 @@ package be.vives.ti.demospringmvc.controller;
 
 import be.vives.ti.demospringmvc.domain.Gender;
 import be.vives.ti.demospringmvc.domain.Student;
-import be.vives.ti.demospringmvc.repository.CourseRepository;
 import be.vives.ti.demospringmvc.repository.StudentRepository;
 import be.vives.ti.demospringmvc.request.StudentRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -32,9 +31,6 @@ class StudentControllerTest {
 
     @MockBean
     private StudentRepository studentRepository;
-
-    @MockBean
-    private CourseRepository courseRepository;
 
     @Test
     void createStudent() throws Exception {

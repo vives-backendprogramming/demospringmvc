@@ -20,7 +20,6 @@ class StudentRepositoryTest {
     @Autowired
     private CourseRepository courseRepository;
 
-
     @Test
     public void simpleCrud() {
         Student chris = studentRepository.save(new Student("Chris", LocalDate.of(1990, 5, 13), true, BigDecimal.ZERO, Gender.M));

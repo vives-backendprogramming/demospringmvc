@@ -20,7 +20,9 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/students")
@@ -38,6 +40,11 @@ public class StudentController {
     @GetMapping
     public Page<StudentResponse> retrieveAllStudents(Pageable pageable) {
         return studentRepository.findAll(pageable).map(StudentResponse::new);
+    }
+
+    @GetMapping(params = "firstName")
+    public List<StudentResponse> findAllStudentsWithFirstName(@RequestParam("firstName") String firstName) {
+        return studentRepository.findAllByFirstName(firstName).stream().map(StudentResponse::new).collect(Collectors.toList());
     }
 
     @GetMapping("/{studentId}")
