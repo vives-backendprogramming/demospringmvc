@@ -30,7 +30,7 @@ public class CourseController {
     }
 
     @GetMapping("/{code}")
-    public Course findAllCoursesOfAStudent(@PathVariable("code") String code){
+    public Course findAllCoursesByCode(@PathVariable("code") String code){
         return courseRepository.findById(code).orElseThrow(() -> new ResourceNotFoundException(code));
     }
 
